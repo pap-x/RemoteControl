@@ -12,9 +12,9 @@ cam = SimpleCV.Camera()
 now = time.time() 
 while (display.isNotDone()) & (now+3>time.time()):
 	img = cam.getImage().flipHorizontal()
-	dist = img.colorDistance(SimpleCV.Color.BLUE).dilate(2)
-	segmented = dist.stretch(200,255)
-	blobs = segmented.findBlobs()
+	dis = img.colorDistance(SimpleCV.Color.BLUE).dilate(2)
+	seg = dis.stretch(220,255)
+	blobs = seg.findBlobs()
 	if blobs:
 		circles = blobs.filter([b.isCircle(0.25) for b in blobs])
 		if circles:
